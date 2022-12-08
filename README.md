@@ -109,7 +109,37 @@ deleteEmployee(String id)
             }
         }
 
-/create
+/employee/highestSalary
+
+    request:
+        method: GET
+        parameters:
+            none 
+        full route: https://dummy.restapiexample.com/api/v1/employee/highestSalary
+    response:
+        {
+            "status": "success",
+            "data": 100000
+        }
+
+/employee/topNamesBySalary
+
+    request:
+        method: GET
+        parameters:
+            none 
+        full route: https://dummy.restapiexample.com/api/v1/employee/topNamesBySalary
+    response:
+        {
+            "status": "success",
+            "data": [
+                "Tiger Nixon",
+                "Foo Bar",
+                ... (MAX 10)
+            ]
+        }
+
+/employee/create
 
     request:
         method: POST
@@ -129,7 +159,7 @@ deleteEmployee(String id)
             }
         }
 
-/delete/{id}
+/employee/delete/{id}
 
     request:
         method: DELETE
