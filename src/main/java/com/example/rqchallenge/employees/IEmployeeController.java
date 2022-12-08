@@ -10,25 +10,25 @@ import java.util.Map;
 @RestController
 public interface IEmployeeController {
 
-    @GetMapping()
-    ResponseEntity<List<Employee>> getAllEmployees() throws IOException;
+    @GetMapping("/employees")
+    ResponseEntity<RQResponse<List<Employee>>> getAllEmployees() throws IOException;
 
-    @GetMapping("/search/{searchString}")
-    ResponseEntity<List<Employee>> getEmployeesByNameSearch(@PathVariable String searchString);
+    @GetMapping("/employee/searchByName/{searchString}")
+    ResponseEntity<RQResponse<List<Employee>>> getEmployeesByNameSearch(@PathVariable String searchString);
 
-    @GetMapping("/{id}")
-    ResponseEntity<Employee> getEmployeeById(@PathVariable String id);
+    @GetMapping("/employee/{id}")
+    ResponseEntity<RQResponse<Employee>> getEmployeeById(@PathVariable Long id);
 
-    @GetMapping("/highestSalary")
-    ResponseEntity<Integer> getHighestSalaryOfEmployees();
+    @GetMapping("/employee/highestSalary")
+    ResponseEntity<RQResponse<Integer>> getHighestSalaryOfEmployees();
 
-    @GetMapping("/topTenHighestEarningEmployeeNames")
-    ResponseEntity<List<String>> getTopTenHighestEarningEmployeeNames();
+    @GetMapping("/employee/topNamesBySalary")
+    ResponseEntity<RQResponse<List<String>>> getTopTenHighestEarningEmployeeNames();
 
-    @PostMapping()
-    ResponseEntity<Employee> createEmployee(@RequestBody Map<String, Object> employeeInput);
+    @PostMapping("/employee")
+    ResponseEntity<RQResponse<Employee>> createEmployee(@RequestBody Map<String, Object> employeeInput);
 
-    @DeleteMapping("/{id}")
-    ResponseEntity<String> deleteEmployeeById(@PathVariable String id);
+    @DeleteMapping("/employee/{id}")
+    ResponseEntity<RQResponse<String>> deleteEmployeeById(@PathVariable Long id);
 
 }
