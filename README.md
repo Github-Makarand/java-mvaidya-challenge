@@ -1,5 +1,7 @@
 # Coding Challenge
 
+**This README file was having some inconsistencies. The file has been edited to remove those.**
+
 ### In this assessment you will be tasked with filling out the functionality of different methods that will be listed further down.
 These methods will require some level of api interactions with the following base url: https://dummy.restapiexample.com.
 Please keep the following in mind when doing this assessment: clean coding practices, test driven development, logging, and scalability.
@@ -44,6 +46,7 @@ deleteEmployee(String id)
 
 ### External endpoints from base url
 #### This section will outline all available endpoints and their request and response models from https://dummy.restapiexample.com
+
 /employees
 
     request:
@@ -56,10 +59,32 @@ deleteEmployee(String id)
             "data": [
                 {
                 "id": "1",
-                "employee_name": "Tiger Nixon",
-                "employee_salary": "320800",
-                "employee_age": "61",
-                "profile_image": ""
+                "name": "Tiger Nixon",
+                "salary": "320800",
+                "age": "61",
+                "id": "1"
+                },
+                ....
+            ]
+        }
+
+/employee/searchByName/{searchString}
+
+    request:
+        method: GET
+        parameters:
+            searchString: (string)
+        full route: https://dummy.restapiexample.com/api/v1/employee/searchByName/{searchString}
+    response:
+        {
+            "status": "success",
+            "data": [
+                {
+                "id": "1",
+                "name": "Tiger Nixon",
+                "salary": "320800",
+                "age": "61",
+                "id": "1"
                 },
                 ....
             ]
@@ -77,10 +102,10 @@ deleteEmployee(String id)
             "status": "success",
             "data": {
                 "id": "1",
-                "employee_name": "Foo Bar",
-                "employee_salary": "320800",
-                "employee_age": "61",
-                "profile_image": ""
+                "name": "Foo Bar",
+                "salary": "320800",
+                "age": "61",
+                "id": "1"
             }
         }
 
@@ -92,7 +117,7 @@ deleteEmployee(String id)
             name (String),
             salary (String),
             age (String)
-        full route: https://dummy.restapiexample.com/api/v1/create
+        full route: https://dummy.restapiexample.com/api/v1/employee/create
     response:
         {
             "status": "success",
@@ -110,7 +135,7 @@ deleteEmployee(String id)
         method: DELETE
         parameters:
             id (String)
-        full route: https://dummy.restapiexample.com/api/v1/delete/{id}
+        full route: https://dummy.restapiexample.com/api/v1/employee/delete/{id}
     response:
         {
             "status": "success",
